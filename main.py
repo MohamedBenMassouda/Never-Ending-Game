@@ -80,7 +80,7 @@ def main():
     startTime = time.time()
     player = Player()
     enemies = [Enemy() for _ in range(5)]
-    velocity = 40
+    velocity = 30
     spawnTime = 2000
     spawnCount = 0
     shot = False
@@ -92,13 +92,13 @@ def main():
 
         if elapsedTime % 30 == 0:
             # Make a line of enemies
-            for _ in range(8):
+            for _ in range(12):
                 enemies.append(Enemy())
 
         spawnCount += clock.tick(60)
 
         if spawnCount >= spawnTime:
-            for _ in range(3):
+            for _ in range(5):
                 enemies.append(Enemy())
 
             spawnCount = 0
@@ -116,7 +116,6 @@ def main():
             for enemy in enemies:
                 enemy.y += velocity
             start = time.time()
-            velocity += 1
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
